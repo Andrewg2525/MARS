@@ -12,6 +12,36 @@ namespace MarsRoverTests
         [TestMethod]
         public void ArgumentNullExceptionThrownIfNameNotPassedToConstructor()
         {
+            try
+            {
+                new Message("", commands);
+            }
+            catch (ArgumentNullException ex)
+            {
+                Assert.AreEqual("Name required", ex.Message);
+            }
+
+        }
+
+        [TestMethod]
+        public void ConstructorSetsName()
+        {
+            Message newMessage = new Message("Pumpkin", commands);
+            Assert.AreEqual(newMessage.Name, "Pumpkin");
+        }
+
+        [TestMethod]
+        public void ConstructorSetsCommandsField()
+        {
+            Message newMessage = new Message("CommandMessage", commands);
+            Assert.AreEqual(newMessage.Commands, commands);
+            
+
+            for(int i = 0; i < commands.Length; i++)
+            {
+                Assert.AreEqual(newMessage.Commands[i].CommandType, commands[i].CommandType);
+            }
+            
         }
 
     }
