@@ -14,7 +14,7 @@ namespace MarsRoverTests
         {
             try
             {
-                new Message("", commands);
+                new Message("new Message", commands);
             }
             catch (ArgumentNullException ex)
             {
@@ -36,11 +36,6 @@ namespace MarsRoverTests
             Message newMessage = new Message("CommandMessage", commands);
             Assert.AreEqual(newMessage.Commands, commands);
             
-
-            for(int i = 0; i < commands.Length; i++)
-            {
-                Assert.AreEqual(newMessage.Commands[i].CommandType, commands[i].CommandType);
-            }
             
         }
 

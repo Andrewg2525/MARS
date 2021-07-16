@@ -6,7 +6,7 @@ namespace MarsRover
         public string Name { get; set; }
         public Command[] Commands { get; set; }
 
-        Command[] commands = { new Command("MODE_CHANGE", "LOW POWER"), new Command("MOVE", 500) };
+        // Command[] commands = { new Command("MODE_CHANGE", "LOW POWER"), new Command("MOVE", 500) };
 
         public Message(string name, Command[] commands)
         {
