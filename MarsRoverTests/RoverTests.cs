@@ -12,28 +12,28 @@ namespace MarsRoverTests
         [TestMethod]
         public void ConstructorSetsDefaultPosition()
         {
-            Rover newRover = new Rover(10);
-            Assert.AreEqual(newRover.Position, 10);
+            Rover newRover = new Rover(98382);
+            Assert.AreEqual(newRover.Position, 98382);
         }
 
         [TestMethod]
         public void ConstructorSetsDefaultMode()
         {
-            Rover newRover = new Rover(10);
+            Rover newRover = new Rover(98382);
             Assert.AreEqual(newRover.Mode, "NORMAL");
         }
 
         [TestMethod]
         public void ConstructorSetsDefaultWatts()
         {
-            Rover newRover = new Rover(10);
+            Rover newRover = new Rover(98382);
             Assert.AreEqual(newRover.GeneratorWatts, 110);
         }
 
         [TestMethod]
         public void RespondsCorrectlyToModeChangeCommand()
         {
-            Rover newRover = new Rover(10);
+            Rover newRover = new Rover(98382);
             Command[] newCommand = { new Command("MODE_CHANGE", "LOW_POWER") };
             Message newMessage = new Message("Change mode", newCommand);
 
@@ -43,20 +43,20 @@ namespace MarsRoverTests
         [TestMethod]
         public void DoesNotMoveInLowPower()
         {
-            Rover newRover = new Rover(10);
+            Rover newRover = new Rover(98382);
             Command[] newCommand = { new Command("MODE_CHANGE", "LOW_POWER"), new Command("MOVE", 25) };
             Message newMessage = new Message("Change mode", newCommand);
 
-            Assert.AreEqual(newRover.Position, 10);
+            Assert.AreEqual(newRover.Position, 98382);
         
         }
 
         [TestMethod]
         public void PositionChangesFromMoveCommand()
         {
-            Rover newRover = new Rover(1000);
+            Rover newRover = new Rover(5000);
           
-            Assert.AreEqual(newRover.Position, 1000); 
+            Assert.AreEqual(newRover.Position, 5000); 
         }
     }
 }
